@@ -1,0 +1,48 @@
+body {
+    font-family: Helvetica, sans-serif;
+    background: #fff;
+    color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    letter-spacing: 0.15em; /* keep the body letter-spacing */
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-top: 0.3rem; /* Adjusted from 1rem to 0.3rem */
+  }
+  
+  .ig-link {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #111;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  
+  .ig-link:hover {
+    color: #555;
+  }
+  
+  .ig-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.2rem;
+  }
+  
+  .ig-handle {
+    /* Override body’s letter-spacing for the handle text */
+    letter-spacing: 0;
+  }
