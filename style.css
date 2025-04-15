@@ -59,12 +59,13 @@ p {
 .hero-text {
   position: relative;
   z-index: 1;
+  margin: 0 auto;
 }
 
 /* 5. Basic text styling */
 .hero-text h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.05rem;
   letter-spacing: 0.05em;
   background-color: #fff;
 }
@@ -98,4 +99,13 @@ p {
 
 .ig-handle {
   letter-spacing: 0;
+}
+/* --- OPTIONAL MEDIA QUERY FOR SMALL SCREENS --- */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2rem;  /* slightly smaller heading on tiny screens */
+  }
+  .hero-text p {
+    font-size: 0.95rem;
+  }
 }
