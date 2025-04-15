@@ -1,48 +1,101 @@
 body {
-    font-family: Helvetica, sans-serif;
-    background: #fff;
-    color: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
-    letter-spacing: 0.15em; /* keep the body letter-spacing */
-    text-align: center;
-  }
+  font-family: Helvetica, sans-serif;
+  background: #fff;
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  letter-spacing: 0.15em; /* keep the body letter-spacing */
+  text-align: center;
+}
 
-  h1 {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  p {
-    font-size: 1rem;
-    margin-top: 0.3rem; /* Adjusted from 1rem to 0.3rem */
-  }
-  
-  .ig-link {
-    margin-top: 1rem;
-    font-size: 1rem;
-    text-decoration: none;
-    color: #111;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s ease;
-  }
-  
-  .ig-link:hover {
-    color: #555;
-  }
-  
-  .ig-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 0.2rem;
-  }
-  
-  .ig-handle {
-    /* Override body’s letter-spacing for the handle text */
-    letter-spacing: 0;
-  }
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+  margin-top: 0.3rem; /* Adjusted from 1rem to 0.3rem */
+}
+
+/* 1. Hero container setup */
+.hero-banner {
+  position: relative;
+  display: flex;
+  /* Center items both horizontally & vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;  /* Page covers full viewport height */
+  overflow: hidden;   /* Hides any image overflow */
+  text-align: center; /* Centers inline text within .hero-text */
+  margin: 0;
+}
+
+/* 2. Palm image container behind text */
+.banner-img-container {
+  position: absolute;         /* Freed from normal flow */
+  top: 32.5%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: -1;               /* Keeps it behind the text */
+  max-width: 350px;          /* Adjust as needed */
+  width: 100%;
+  height: auto;
+}
+
+/* 3. Palm image styling */
+.banner-img {
+  opacity: 60%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 4. Text container in normal stacking context (above the palm) */
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* 5. Basic text styling */
+.hero-text h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  background-color: #fff;
+}
+
+.hero-text p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+/* 6. Instagram Link Styles */
+.ig-link {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #111;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.ig-link:hover {
+  color: #555;
+}
+
+.ig-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.2rem;
+}
+
+.ig-handle {
+  letter-spacing: 0;
+}
