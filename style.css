@@ -103,6 +103,7 @@ p {
 
 .word-tight {
   word-spacing: -0.32em;
+  letter-spacing: 0.04em;
 }
 
 /* --- OPTIONAL MEDIA QUERY FOR SMALL SCREENS --- */
