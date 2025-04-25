@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belle M | Model | LOSTANDFOUND.mgmt</title>
+  <link rel="stylesheet" href="./BelleM/theme/galleria.fullscreen_light.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/footer.css">
+  <style>
+    /* Wrapper Page Styles */
+    body {
+      margin: 0;
+      font-family: Helvetica, sans-serif;
+      background: #fff;
+      color: #111;
+      text-align: center;
+    }
+    header, footer {
+      background: #fff;
+    }
+    header h1 {
+      margin-top: 1.5rem;
+      margin-bottom: 1em;
+    }
+    footer {
+      background: #fff;
+      padding: 10px 0;
+      font-size: 0.8rem;
+    }
+    main {
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    /* Use calc() to keep the iframe under the header and above the footer */
+    iframe {
+      width: 100%;
+      border: none;
+      height: calc(100vh - 230px);
+      /* Adjust 230px as needed for your header/footer space */
+      margin-top: -1rem;
+      margin-bottom: -1rem;
+    }
+    html, body {
+      background-color: #fff !important;
+    }
+    .galleria-container {
+      background-color: #fff !important;
+    }
+
+    .model-stats {
+      font-family: 'Georgia', serif;
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .model-stats h2 {
+      margin-top: 1rem;
+      margin-bottom: 0;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .model-stats p {
+      margin: 0.5rem 0 0 0;
+      font-size: 0.7rem !important;
+      white-space: pre-line;
+      margin-top: -0.3rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="/" alt="home" style="color: inherit; text-decoration: none;">
+        <span class="word-tight">LOST AND FOUND</span>
+      </a>
+    </h1>
+  </header>
+
+  <main>
+    <!-- Iframe loading the contact sheet -->
+    <iframe id="contactSheetFrame" src="./BelleM/index.html"></iframe>
+    <div class="model-stats">
+      <h2>BELLE M</h2>
+      <p>height <b>5'9½"</b> bust <b>32</b> waist <b>23</b> hip <b>34</b> shoe <b>EU39</b> hair <b>dark brown</b> eyes <b>blue</b></p>
+    </div>
+  </main>
+
+  <footer>
+    <a class="ig-link" href="https://www.instagram.com/lostandfound.mgmt/" target="_blank">
+      <img class="ig-icon" src="/assets/IG-icon.svg" alt="Instagram Icon">
+      <span class="ig-handle">LOSTANDFOUND.mgmt</span>
+    </a>
+  </footer>
+
+  <!-- Script to modify iframe content once loaded -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const iframe = document.getElementById('contactSheetFrame');
+      iframe.addEventListener('load', () => {
+  const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+  // Set iframe base styles
+  iframeDoc.documentElement.style.backgroundColor = '#fff';
+  iframeDoc.body.style.backgroundColor = '#fff';
+
+  // Inject new style directly into the iframe to override Galleria styles
+  const styleTag = iframeDoc.createElement('style');
+  styleTag.textContent = `
+    html, body {
+      background-color: #fff !important;
+    }
+    .galleria-container {
+      background-color: #fff !important;
+    }
+    .galleria-thumbnails-list {
+      background-color: #fff !important;
+    }
+    .galleria-info {
+      display: none !important;
+    }
+    #toggle-info-button {
+      display: none !important;
+    }
+  `;
+  iframeDoc.head.appendChild(styleTag);
+
+  // Galleria reconfiguration (wait for it to become available)
+  const galleriaScript = iframeDoc.createElement('script');
+  galleriaScript.textContent = `
+    function waitForGalleriaConfig(attempts = 0) {
+      if (window.Galleria && typeof Galleria.configure === 'function') {
+        Galleria.configure({
+          imageCrop: false,
+          thumbnails: 'bottom'
+        });
+      } else if (attempts < 10) {
+        setTimeout(() => waitForGalleriaConfig(attempts + 1), 300);
+      }
+    }
+    waitForGalleriaConfig();
+  `;
+  iframeDoc.body.appendChild(galleriaScript);
+    });
+  });
+  </script>
+</body>
+</html>
