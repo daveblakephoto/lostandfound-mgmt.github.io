@@ -10,6 +10,15 @@
     overflow-x: hidden;
   }
 
+  @keyframes fadeInVideo {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .background-video {
     position: fixed;
     top: 50%;
@@ -24,6 +33,8 @@
     z-index: -1;
     background: #ffffff;
     /* opacity: 0.88; */
+    animation: fadeInVideo 2s ease-in-out forwards;
+    opacity: 0;
 }
 
   .hero-banner {
