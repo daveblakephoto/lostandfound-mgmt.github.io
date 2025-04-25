@@ -1,8 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <!-- Background -->
-  <rect width="64" height="64" fill="#111" rx="10"/>
-  <!-- Text: LF for LOSTANDFOUND -->
-  <text x="50%" y="50%" font-family="Helvetica, sans-serif" font-size="28" fill="#fff" text-anchor="middle" dominant-baseline="central">
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="64" height="64" fill="#fff" />
+  <!-- Black letters -->
+  <text
+    x="50%"
+    y="50%"
+    font-family="Helvetica, sans-serif"
+    font-size="28"
+    fill="#111"
+    text-anchor="middle"
+    dominant-baseline="central"
+  >
     LF
   </text>
 </svg>
