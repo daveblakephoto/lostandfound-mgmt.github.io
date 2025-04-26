@@ -11,6 +11,14 @@
     overflow-x: hidden;
   }
 
+  @keyframes fadeInVideo {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   .background-video {
     position: fixed;
@@ -26,7 +34,8 @@
     z-index: -1;
     background: #ffffff;
     /* opacity: 0.88; */
-    opacity: 1;
+    animation: fadeInVideo 2s ease-in-out forwards;
+    opacity: 0;
 }
 
   .hero-banner {
@@ -45,19 +54,9 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #ffffff;
+    /* background: rgba(121, 50, 2, 0.11); */
     z-index: -1;
     pointer-events: none;
-    animation: fadeOutOverlay 2s ease-in-out forwards;
-  }
-
-  @keyframes fadeOutOverlay {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
   }
 
   .main-nav {
@@ -80,9 +79,6 @@
   .main-nav a:hover {
     color: #555;
     text-decoration: underline;
-  }
-  video::-webkit-media-controls {
-    display: none !important;
   }
   </style>
   <link rel="icon" href="/favicon.png" type="image/png">
@@ -164,7 +160,7 @@
         autoplay
         muted
         loop
-        preload="metadata"
+        preload="auto"
         disablePictureInPicture
         poster="assets/glimmerwatersail_placeholder.jpg"
         class="background-video">
