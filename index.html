@@ -81,6 +81,9 @@
     color: #555;
     text-decoration: underline;
   }
+  video::-webkit-media-controls {
+    display: none !important;
+  }
   </style>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -163,9 +166,11 @@
         loop
         preload="auto"
         disablePictureInPicture
+        controlslist="nodownload nofullscreen noplaybackrate"
+        controls
         poster="assets/glimmerwatersail_placeholder.jpg"
         class="background-video">
-        <source src="https://pub-e5667d01e3504197872d1e362d63a3e3.r2.dev/glimmerwatersail_720p_optimised.mp4" type="video/mp4">
+        <source src="https://player.vimeo.com/progressive_redirect/download/715817281/container/f7a092b2-deaa-42a2-ba99-2a720d9ec685/d9c38830/glimmerwatersail1.mov%20%28720p%29.mp4?expires=1745785475&loc=external&signature=58371af4f67124dc9acb5a43d3afe14cd1025b00ba5d61750d19aac486a61638&user_id=48385895" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="video-overlay"></div>
