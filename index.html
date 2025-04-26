@@ -57,6 +57,7 @@
     /* background: rgba(121, 50, 2, 0.11); */
     z-index: -1;
     pointer-events: none;
+    transition: background-image 1s ease-in-out;
   }
 
   .main-nav {
@@ -199,4 +200,19 @@
     </div>
   </section>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const video = document.querySelector('.background-video');
+
+  if (video) {
+    video.addEventListener('error', function() {
+      console.warn('Background video failed to load. Fallback to poster.');
+      video.style.display = 'none';
+      document.querySelector('.video-overlay').style.backgroundImage = "url('assets/glimmerwatersail_placeholder.jpg')";
+      document.querySelector('.video-overlay').style.backgroundSize = "cover";
+      document.querySelector('.video-overlay').style.backgroundPosition = "center";
+    });
+  }
+});
+</script>
 </html>
