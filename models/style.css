@@ -1,0 +1,8 @@
+h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+.word-tight {
+    word-spacing: -0.32em;
+    letter-spacing: 0.04em;
+  }
