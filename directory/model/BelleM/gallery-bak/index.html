@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "html">
+
+<html lang="sv">
+    <head>
+        <title>Belle M</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="generator" content="Capture One http://phaseone.com/">
+        <meta name="author" content="Dave Blake">
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/galleria.js"></script>
+        <style type="text/css">
+                html, body { background-color: #ccc;}
+            </style>
+        <link rel="stylesheet" type="text/css" media="screen, print" href="theme/fullscreenlight_contactsheet.css">
+        <!--[if IE]>
+			<link rel="stylesheet" type="text/css" media="screen, print" href="theme/fullscreenlight_contactsheet_ie.css">
+			<![endif]-->
+    </head>
+    <body>
+        <div id="toggle-info-button"></div>
+        <div id="info-panel" style="left:-300px; opacity:0;">
+            <div id="wcs-title">Belle M</div>
+            <div id="wcs-description">Belle M X LOSTANDFOUND</div>
+            <div id="contact-info-box">Copyright © <a href="http://https://dave-blake.com" id="wcs-contact-link">Dave Blake</a>
+            </div>
+        </div>
+        <div id="galleria">
+            <a href="photos/previews/DaveBlake_isabelle-marcovich-test-shoot-brisbane_370.jpg.p.jpg">
+                <img src="photos/thumbnails/DaveBlake_isabelle-marcovich-test-shoot-brisbane_370.jpg.t.jpg" id="629B1022-E04D-4F39-9100-8B7E71E24E59" title="22/2/2025">
+            </a>
+            <a href="photos/previews/DaveBlake_isabelle-marcovich-test-shoot-brisbane_381.jpg.p.jpg">
+                <img src="photos/thumbnails/DaveBlake_isabelle-marcovich-test-shoot-brisbane_381.jpg.t.jpg" id="9C6CC967-798E-4AAC-9567-1AA33EEEB339" title="23/2/2025">
+            </a>
+            <a href="photos/previews/DaveBlake_isabelle-marcovich-test-shoot-brisbane_625.jpg.p.jpg">
+                <img src="photos/thumbnails/DaveBlake_isabelle-marcovich-test-shoot-brisbane_625.jpg.t.jpg" id="8D8A305C-81B1-4284-8A7C-039193FF4583" title="26/2/2025">
+            </a>
+            <a href="photos/previews/DaveBlake_isabelle-marcovich-beach-shoot-byron-bay_295.jpg.p.jpg">
+                <img src="photos/thumbnails/DaveBlake_isabelle-marcovich-beach-shoot-byron-bay_295.jpg.t.jpg" id="D999328F-A6F0-4A69-A218-EA7428618203" title="2/3/2025">
+            </a>
+            <a href="photos/previews/DaveBlake_isabelle-marcovich-beach-shoot-byron-bay_454.jpg.p.jpg">
+                <img src="photos/thumbnails/DaveBlake_isabelle-marcovich-beach-shoot-byron-bay_454.jpg.t.jpg" id="1CCCB121-F956-4601-81A8-C74F21D9790B" title="5/3/2025">
+            </a>
+            <a href="photos/previews/DaveBlake_isabelle-marcovich-beach-shoot-byron-bay_674.jpg.p.jpg">
+                <img src="photos/thumbnails/DaveBlake_isabelle-marcovich-beach-shoot-byron-bay_674.jpg.t.jpg" id="84817727-563E-481D-9CDB-F7E22D3F7905" title="11/3/2025">
+            </a>
+        </div>
+        <script type="text/javascript">
+				Galleria.loadTheme('theme/galleria.fullscreen_light.js');
+				$('#galleria').galleria();					
+				
+				function toggleInfoPanel(showIt) {
+					var infoPanel = $("#info-panel");
+					var toggleButton = $("#toggle-info-button");
+					
+					if (showIt) {				
+						toggleButton.fadeOut("fast", function(){
+							toggleButton.addClass("panel-open").fadeIn();
+						});
+						
+						infoPanel.animate({
+							opacity: 1,
+							left: "0px"
+						}, "fast");
+					} else {
+							
+						toggleButton.fadeOut("fast", function(){
+							toggleButton.removeClass("panel-open").fadeIn();
+						});
+						
+						infoPanel.animate({
+							opacity: 0,			
+							left: "-300px"
+						}, "fast");			
+					}	
+				}
+				toggleInfoPanel(false);	
+				//close panel on click outside
+				$('body').click(function() { 
+					if ($("#toggle-info-button").hasClass("panel-open")) 
+						toggleInfoPanel(false); 
+				});
+				$('#infoPanel').click(function(event){ event.stopPropagation(); });
+				$("#toggle-info-button").click(function(event){		
+					toggleInfoPanel( $(this).hasClass("panel-open") == false);
+					event.stopPropagation(); 	
+				});				
+			</script>
+    </body>
+</html>
