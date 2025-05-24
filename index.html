@@ -81,12 +81,33 @@
     color: #555;
     text-decoration: underline;
   }
-  </style>
-  <style>
+  .footer-nav {
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .footer-nav nav a {
+    color: #111;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    letter-spacing: 0.1em;
+  }
+  .footer-nav nav a:hover {
+    text-decoration: underline;
+    color: #555;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
   .background-video::-webkit-media-controls {
     display: none !important;
   }
-
   .video-container {
     pointer-events: none;
   }
@@ -162,6 +183,20 @@
   }
 }
 </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://lostandfound-mgmt.com/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <section class="hero-banner">
@@ -196,10 +231,15 @@
       <br/>
       <div class="main-nav">
         <a class="nav-heading" href="/models">WOMEN:</a>
-        <a href="/directory/model/BelleM">BELLE M</a>
+        <a href="/directory/model/BelleM">BELLE&nbsp;M</a>
       </div>
     </div>
   </section>
+  <footer class="footer-nav">
+    <nav>
+      <a href="/become-a-model/">become&nbsp;a&nbsp;model</a>
+    </nav>
+  </footer>
 </body>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
