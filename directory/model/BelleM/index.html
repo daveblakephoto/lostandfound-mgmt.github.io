@@ -165,7 +165,7 @@
 
   <main>
     <!-- Iframe loading the contact sheet -->
-    <iframe id="contactSheetFrame" src="./gallery/index.html"></iframe>
+    <iframe id="contactSheetFrame" src="./gallery-artist/index.html"></iframe>
     <div class="model-stats">
       <h2>BELLE M</h2>
       <p>
@@ -186,6 +186,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       const iframe = document.getElementById('contactSheetFrame');
       iframe.addEventListener('load', () => {
+  console.log('BelleM iframe loaded and script running');
   const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
   // Set iframe base styles
@@ -195,38 +196,74 @@
   // Inject new style directly into the iframe to override Galleria styles
   const styleTag = iframeDoc.createElement('style');
   styleTag.textContent = `
-    html, body {
-      background-color: #fff !important;
-    }
-    .galleria-container {
-      background-color: #fff !important;
-    }
-    .galleria-thumbnails-list {
-      background-color: #fff !important;
-    }
-    .galleria-info {
-      display: none !important;
-    }
-    #toggle-info-button {
-      display: none !important;
-    }
-  `;
+  /* Ensure white background */
+  html, body, .galleria-container {
+    background-color: #fff !important;
+  }
+  /* Hide thumbnails by default and fade only on hover */
+  .galleria-thumbnails-list {
+    background-color: #fff !important;
+    opacity: 0 !important;
+    transition: opacity 0.2s ease-in-out !important;
+  }
+  .galleria-container:hover .galleria-thumbnails-list {
+    opacity: 1 !important;
+  }
+  /* Hide thumbnails when arrows are hovered */
+  .galleria-container.no-thumbnails .galleria-thumbnails-list {
+    opacity: 0 !important;
+  }
+  /* Hide info panel and toggle button */
+  .galleria-info,
+  #toggle-info-button {
+    display: none !important;
+  }
+`;
   iframeDoc.head.appendChild(styleTag);
 
   // Galleria reconfiguration (wait for it to become available)
   const galleriaScript = iframeDoc.createElement('script');
   galleriaScript.textContent = `
     function waitForGalleriaConfig(attempts = 0) {
+      console.log('Attempting Galleria configuration, attempt:', attempts);
       if (window.Galleria && typeof Galleria.configure === 'function') {
         Galleria.configure({
           imageCrop: false,
-          thumbnails: 'bottom'
+          thumbnails: 'bottom',
+          idleMode: true,
+          idleTime: 500   // hide thumbnails after 500ms of no mouse movement
+        });
+        Galleria.on('image', function() {
+          this.hide('thumbnails');
+        }).on('image:show', function() {
+          // whenever a new image shows, schedule a quick thumbnail hide
+          setTimeout(() => this.hide('thumbnails'), 100);
         });
       } else if (attempts < 10) {
         setTimeout(() => waitForGalleriaConfig(attempts + 1), 300);
       }
     }
     waitForGalleriaConfig();
+
+// Bind arrow hover events recursively until elements exist
+(function bindArrowHover() {
+  var navLeft = document.querySelector('.galleria-image-nav-left');
+  var navRight = document.querySelector('.galleria-image-nav-right');
+  if (navLeft && navRight && window.Galleria) {
+    [navLeft, navRight].forEach(function(arrow) {
+      arrow.addEventListener('mouseenter', function() {
+        var container = document.querySelector('.galleria-container');
+        if (container) container.classList.add('no-thumbnails');
+      });
+      arrow.addEventListener('mouseleave', function() {
+        var container = document.querySelector('.galleria-container');
+        if (container) container.classList.remove('no-thumbnails');
+      });
+    });
+  } else {
+    setTimeout(bindArrowHover, 300);
+  }
+})();
   `;
   iframeDoc.body.appendChild(galleriaScript);
     });
