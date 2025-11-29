@@ -236,26 +236,40 @@
   // Galleria reconfiguration (wait for it to become available)
   const galleriaScript = iframeDoc.createElement('script');
   galleriaScript.textContent = `
-    function waitForGalleriaConfig(attempts = 0) {
-      console.log('Attempting Galleria configuration, attempt:', attempts);
-      if (window.Galleria && typeof Galleria.configure === 'function') {
-        Galleria.configure({
-          imageCrop: false,
-          thumbnails: 'bottom',
-          idleMode: true,
-          idleTime: 500   // hide thumbnails after 500ms of no mouse movement
-        });
-        Galleria.on('image', function() {
-          this.hide('thumbnails');
-        }).on('image:show', function() {
-          // whenever a new image shows, schedule a quick thumbnail hide
-          setTimeout(() => this.hide('thumbnails'), 100);
-        });
-      } else if (attempts < 10) {
-        setTimeout(() => waitForGalleriaConfig(attempts + 1), 300);
+    (function patchGalleria(attempts = 0) {
+      if (window.Galleria &&
+          Galleria.Picture &&
+          Galleria.Picture.prototype &&
+          typeof Galleria.Picture.prototype.scale === 'function') {
+        if (!Galleria.Picture.prototype.__lostFoundPatched) {
+          const originalScale = Galleria.Picture.prototype.scale;
+          Galleria.Picture.prototype.scale = function(options) {
+            options = options || {};
+            options.crop = false;
+            return originalScale.call(this, options);
+          };
+          Galleria.Picture.prototype.__lostFoundPatched = true;
+        }
+        if (typeof Galleria.configure === 'function') {
+          Galleria.configure({
+            imageCrop: false,
+            image_crop: false,
+            thumbnails: 'bottom',
+            idleMode: true,
+            idleTime: 500
+          });
+        }
+        if (typeof Galleria.get === 'function' && Galleria.get(0)) {
+          try {
+            Galleria.get(0).rescale();
+          } catch (err) {
+            console.warn('Galleria rescale failed', err);
+          }
+        }
+      } else if (attempts < 15) {
+        setTimeout(() => patchGalleria(attempts + 1), 300);
       }
-    }
-    waitForGalleriaConfig();
+    })();
 
 // Bind arrow hover events recursively until elements exist
 (function bindArrowHover() {
