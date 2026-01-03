@@ -139,6 +139,7 @@
       line-height: 1.7;
       letter-spacing: 0.02em;
       margin: 0.2rem 0 0.8rem;
+      word-break: break-word;
     }
 
     .contact-body a {
@@ -148,6 +149,30 @@
 
     footer {
       padding: 1.5rem 0 2rem;
+    }
+
+    .footer-nav {
+      margin-top: 0.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+    }
+
+    .footer-nav a {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-sep {
+      color: #111;
+      font-size: 0.95rem;
+      line-height: 1;
     }
 
     @media (min-width: 768px) {
@@ -186,7 +211,10 @@
       <p class="eyebrow">Mother agency</p>
       <h2 class="contact-heading">Contact</h2>
       <p class="contact-body">
-        Based in Brisbane &amp; Byron Bay, Australia.
+        LOSTANDFOUND.mgmt<br>
+        Based in Brisbane &amp; Byron Bay, Australia.<br>
+        Meetings by appointment only.<br>
+        ABN 25 688 068 116
       </p>
       <p class="contact-body">
         Email: <a href="mailto:hello@lostandfound.mgmt">hello@lostandfound.mgmt</a>
@@ -204,6 +232,14 @@
       <img class="ig-icon" src="/assets/IG-icon.svg" alt="Instagram Icon">
       <span class="ig-handle">LOSTANDFOUND.mgmt</span>
     </a>
+    <div class="footer-nav">
+      <span class="footer-sep">•</span>
+      <a href="/">home</a>
+      <span class="footer-sep">•</span>
+      <a href="/become-a-model/">become&nbsp;a&nbsp;model</a>
+      <span class="footer-sep">•</span>
+      <a href="/the-agency/">the&nbsp;agency</a>
+    </div>
   </footer>
 </body>
 </html>
