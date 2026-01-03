@@ -91,15 +91,30 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      justify-content: space-between;
+      min-height: 100vh;
+      height: auto;
+      justify-content: flex-start;
+      position: relative;
+      overflow: auto;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("/assets/laf-palm6.svg") center 18% no-repeat;
+      background-size: 520px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
     }
     header, footer {
       background: #fff;
+      text-align: center;
     }
     header h1 {
       margin-top: 1.5rem;
       margin-bottom: 1em;
+      letter-spacing: 0.08em;
     }
     footer {
       background: #fff;
@@ -109,12 +124,14 @@
       margin-bottom: 1.5rem;
     }
     main {
-      margin: auto;
-      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 760px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 40px;
+      padding: 2.5rem 1.5rem 3rem;
+      flex: 1;
     }
    
     html, body {
@@ -143,26 +160,56 @@
   }
 
   /* Become-a-model page typography and layout */
+  .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 1.2rem;
+  }
   .become-heading {
     font-size: 2rem;
-    margin: 1rem 0;
+    margin: 0 0 1.2rem;
     letter-spacing: 0.05em;
-    max-width: 600px;
+    max-width: 640px;
   }
   .become-text {
     font-size: 1rem;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0 0 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .list-heading {
+    margin: 1.1rem 0 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .requirements {
+    list-style: decimal;
+    padding-left: 1.2rem;
+    margin: 0 0 1.2rem;
+    text-align: left;
+  }
+  .requirements li {
+    margin: 0.25rem 0;
     line-height: 1.6;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    letter-spacing: 0.01em;
+  }
+  .sub-list {
+    list-style: disc;
+    padding-left: 1.2rem;
+    margin: 0.35rem 0 0.6rem;
+  }
+  .sub-list li {
+    margin: 0.2rem 0;
   }
   @media (min-width: 768px) {
     .become-heading {
       font-size: 2.5rem;
     }
     .become-text {
-      font-size: 1.125rem;
-      padding: 0 2rem;
+      font-size: 1.05rem;
+      padding: 0;
     }
   }
   </style>
@@ -177,7 +224,7 @@
     plausible.o = i || {};
   };
   plausible.init();
-</script>
+  </script>
 </head>
 <body>
   <header>
@@ -188,9 +235,35 @@
     </h1>
   </header>
   <main>
-    <h2 class="become-heading">Ready to Begin Your Modeling Journey?</h2>
+    <p class="eyebrow">We are constantly looking for new faces.</p>
+    <h2 class="become-heading">Become a model</h2>
     <p class="become-text">
-      Follow <a href="https://www.instagram.com/lostandfound.mgmt/" target="_blank" onclick="plausible('Instagram DM Click')">@lostandfound.mgmt</a> on Instagram and send us your polaroids via DM to be considered.
+      If you are interested in submitting, please message us on Instagram at <a href="https://www.instagram.com/lostandfound.mgmt/" target="_blank" onclick="plausible('Instagram DM Click')">@lostandfound.mgmt</a> with the following:
+    </p>
+    <div class="become-text">
+      <div class="list-heading">1. Tell us about yourself</div>
+      <ul class="requirements">
+        <li>Your name</li>
+        <li>Your age</li>
+        <li>Your preferred pronouns (optional)</li>
+        <li>Where you are based in Australia</li>
+        <li>Your height</li>
+        <li>Your hobbies, skills, and interests</li>
+        <li>Your Instagram (and TikTok if you post)</li>
+      </ul>
+      <div class="list-heading">2. Send us photos</div>
+      <ul class="requirements">
+        <li>Headshot</li>
+        <li>Close up side profile</li>
+        <li>3/4 portrait (above the knee)</li>
+        <li>Full body</li>
+      </ul>
+      <ul class="sub-list">
+        <li>Natural light. No makeup. Hair down. Plain background.</li>
+      </ul>
+    </div>
+    <p class="become-text">
+      DM <a href="https://www.instagram.com/lostandfound.mgmt/" target="_blank" onclick="plausible('Instagram DM Click')">@lostandfound.mgmt</a> to submit.
     </p>
   </main>
   <footer>

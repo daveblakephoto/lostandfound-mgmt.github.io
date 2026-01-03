@@ -233,51 +233,6 @@
 `;
   iframeDoc.head.appendChild(styleTag);
 
-  // Galleria reconfiguration (wait for it to become available)
-  const galleriaScript = iframeDoc.createElement('script');
-  galleriaScript.textContent = `
-    function waitForGalleriaConfig(attempts = 0) {
-      console.log('Attempting Galleria configuration, attempt:', attempts);
-      if (window.Galleria && typeof Galleria.configure === 'function') {
-        Galleria.configure({
-          imageCrop: false,
-          thumbnails: 'bottom',
-          idleMode: true,
-          idleTime: 500   // hide thumbnails after 500ms of no mouse movement
-        });
-        Galleria.on('image', function() {
-          this.hide('thumbnails');
-        }).on('image:show', function() {
-          // whenever a new image shows, schedule a quick thumbnail hide
-          setTimeout(() => this.hide('thumbnails'), 100);
-        });
-      } else if (attempts < 10) {
-        setTimeout(() => waitForGalleriaConfig(attempts + 1), 300);
-      }
-    }
-    waitForGalleriaConfig();
-
-// Bind arrow hover events recursively until elements exist
-(function bindArrowHover() {
-  var navLeft = document.querySelector('.galleria-image-nav-left');
-  var navRight = document.querySelector('.galleria-image-nav-right');
-  if (navLeft && navRight && window.Galleria) {
-    [navLeft, navRight].forEach(function(arrow) {
-      arrow.addEventListener('mouseenter', function() {
-        var container = document.querySelector('.galleria-container');
-        if (container) container.classList.add('no-thumbnails');
-      });
-      arrow.addEventListener('mouseleave', function() {
-        var container = document.querySelector('.galleria-container');
-        if (container) container.classList.remove('no-thumbnails');
-      });
-    });
-  } else {
-    setTimeout(bindArrowHover, 300);
-  }
-})();
-  `;
-  iframeDoc.body.appendChild(galleriaScript);
     });
   });
   </script>

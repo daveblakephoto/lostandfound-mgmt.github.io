@@ -90,11 +90,21 @@
     text-align: center;
     padding: 1rem 0;
   }
+  .footer-nav nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
   .footer-nav nav a {
     color: #111;
     text-decoration: none;
-    margin: 0 0.5rem;
     letter-spacing: 0.1em;
+  }
+  .footer-nav .footer-sep {
+    color: #111;
+    letter-spacing: 0;
+    font-size: 1.1rem;
+    line-height: 1;
   }
   .footer-nav nav a:hover {
     text-decoration: underline;
@@ -163,7 +173,16 @@
       "areaServed": {
         "@type": "Country",
         "name": "Australia"
-      }
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "booking",
+          "email": "hello@lostandfound.mgmt",
+          "telephone": "+61-402-144-251",
+          "areaServed": "AU"
+        }
+      ]
     }
     </script>
   <script type="application/ld+json">
@@ -251,6 +270,10 @@
   <footer class="footer-nav">
     <nav>
       <a href="/become-a-model/">become&nbsp;a&nbsp;model</a>
+      <span class="footer-sep">•</span>
+      <a href="/the-agency/">the&nbsp;agency</a>
+      <span class="footer-sep">•</span>
+      <a href="/contact/">contact</a>
     </nav>
   </footer>
 </body>
