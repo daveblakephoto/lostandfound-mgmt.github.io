@@ -4,7 +4,7 @@
   <link rel="canonical" href="https://lostandfound-mgmt.com/models/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="noindex,nofollow,noarchive">
   <title>Our Models - LOSTANDFOUND — Model Management</title>
   <meta name="description" content="Explore the LOSTANDFOUND Management model directory. Discover emerging talent and new faces represented by our Brisbane-based mother agency.">
   <meta property="og:title" content="Our Models - LOSTANDFOUND — Model Management">
@@ -133,12 +133,36 @@
     text-decoration: underline;
   }
 
-  .main-nav .roster-empty {
-    margin: 1rem auto 0;
-    max-width: 420px;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    line-height: 1.55;
+  .roster-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .roster-label {
+    font-weight: normal;
+    color: black;
+    letter-spacing: -0.08em;
+  }
+
+  .model-card {
+    color: #111;
+    text-decoration: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .model-card img {
+    width: min(280px, 76vw);
+    height: auto;
+    display: block;
+  }
+
+  .model-card span {
+    letter-spacing: -0.08em;
   }
 
   </style>
@@ -165,10 +189,13 @@
   </header>
 
   <main>
-    <div class="main-nav">
-      <span class="nav-heading">WOMEN:</span><br>
-      <p class="roster-empty">ROSTER UPDATE IN PROGRESS. NEW FACES WILL BE PUBLISHED SOON.</p>
-    </div>
+    <section class="main-nav roster-section" aria-label="Men">
+      <span class="roster-label">MEN:</span>
+      <a class="model-card" href="/directory/model/JackSacks/">
+        <img src="/directory/model/JackSacks/JackSacks-headshot.jpg" alt="Jack Sacks portfolio thumbnail">
+        <span>JACK SACKS</span>
+      </a>
+    </section>
   </main>
 
   <footer>

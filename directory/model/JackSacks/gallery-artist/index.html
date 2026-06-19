@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LOSTANDFOUND Management - Jack Sacks - Model Gallery</title>
+    <meta charset="utf-8">
+    <meta name="generator" content="Capture One http://phaseone.com/">
+    <meta name="author" content="Dave Blake">
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/galleria.js"></script>
+    <style type="text/css">
+      html,
+      body {
+        background-color: #ccc;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" media="screen, print" href="theme/fullscreenlight_contactsheet.css">
+    <!--[if IE]>
+      <link rel="stylesheet" type="text/css" media="screen, print" href="theme/fullscreenlight_contactsheet_ie.css">
+    <![endif]-->
+  </head>
+  <body>
+    <div id="toggle-info-button"></div>
+    <div id="info-panel" style="left:-300px; opacity:0;">
+      <div id="wcs-title">LOSTANDFOUND Management - Jack Sacks - Model Gallery</div>
+      <div id="wcs-description"></div>
+      <div id="contact-info-box">Copyright © <a href="https://lostandfound-mgmt.com" id="wcs-contact-link">LOSTANDFOUND Management</a></div>
+    </div>
+    <div id="galleria">
+      <a href="photos/previews/jack-sacks-bw-headshot-cover.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-bw-headshot-cover.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks black and white studio headshot">
+      </a>
+      <a href="photos/previews/jack-sacks-cream-knit.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-cream-knit.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks cream knit look">
+      </a>
+      <a href="photos/previews/jack-sacks-black-jacket.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-black-jacket.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks black jacket look">
+      </a>
+      <a href="photos/previews/jack-sacks-olive-jacket-full.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-olive-jacket-full.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks olive jacket full length look">
+      </a>
+      <a href="photos/previews/jack-sacks-orange-jacket-portrait.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-orange-jacket-portrait.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks orange jacket portrait">
+      </a>
+      <a href="photos/previews/jack-sacks-orange-jacket-full.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-orange-jacket-full.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks full length orange jacket look">
+      </a>
+      <a href="photos/previews/jack-sacks-red-shirt-full.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-red-shirt-full.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks red shirt full length look">
+      </a>
+      <a href="photos/previews/jack-sacks-beanie-brown-shirt.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-beanie-brown-shirt.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks beanie and brown shirt look">
+      </a>
+      <a href="photos/previews/jack-sacks-bw-shirtless-smile.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-bw-shirtless-smile.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks black and white shirtless portrait">
+      </a>
+      <a href="photos/previews/jack-sacks-color-shirtless-arms.jpg.p.jpg">
+        <img src="photos/thumbnails/jack-sacks-color-shirtless-arms.jpg.t.jpg" title="Jack Sacks" alt="Jack Sacks colour shirtless portrait">
+      </a>
+    </div>
+    <script type="text/javascript">
+      Galleria.loadTheme('theme/galleria.fullscreen_light.js');
+      $('#galleria').galleria();
+
+      function toggleInfoPanel(showIt) {
+        var infoPanel = $('#info-panel');
+        var toggleButton = $('#toggle-info-button');
+
+        if (showIt) {
+          toggleButton.fadeOut('fast', function() {
+            toggleButton.addClass('panel-open').fadeIn();
+          });
+
+          infoPanel.animate({
+            opacity: 1,
+            left: '0px'
+          }, 'fast');
+        } else {
+          toggleButton.fadeOut('fast', function() {
+            toggleButton.removeClass('panel-open').fadeIn();
+          });
+
+          infoPanel.animate({
+            opacity: 0,
+            left: '-300px'
+          }, 'fast');
+        }
+      }
+
+      toggleInfoPanel(false);
+
+      $('body').click(function() {
+        if ($('#toggle-info-button').hasClass('panel-open')) {
+          toggleInfoPanel(false);
+        }
+      });
+      $('#infoPanel').click(function(event) {
+        event.stopPropagation();
+      });
+      $('#toggle-info-button').click(function(event) {
+        toggleInfoPanel($(this).hasClass('panel-open') == false);
+        event.stopPropagation();
+      });
+    </script>
+  </body>
+</html>
