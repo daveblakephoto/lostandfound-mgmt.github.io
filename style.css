@@ -201,7 +201,7 @@ details p { padding: 0 0 1.25rem; }
 @media (max-width: 680px) {
   .palm { margin-bottom: -7rem; }
   .masthead { flex-direction: column; align-items: center; gap: .2rem; padding: 1.1rem var(--gutter) .2rem; }
-  .masthead nav { width: 100%; flex-wrap: wrap; gap: 0 1rem; }
+  .masthead nav { width: 100%; flex-wrap: wrap; gap: 0 .75rem; }
   .spread, .portfolio { grid-template-columns: 1fr; }
   .roster .roster-selection { justify-self: start; }
   .home-bottom nav { flex-wrap: wrap; justify-content: center; gap: 0 1.2rem; }
