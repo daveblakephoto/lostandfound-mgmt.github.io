@@ -118,9 +118,9 @@ nav a:hover, nav [aria-current="page"] {
   content: "";
   display: block;
   width: clamp(13rem, 22vw, 16rem);
-  aspect-ratio: 5;
+  aspect-ratio: 274.234722 / 56;
   background: currentColor;
-  mask: url("/assets/lostandfound-lockup.svg") center / contain no-repeat;
+  mask: url("/assets/lostandfound-lockup.svg?v=20261103d") center / contain no-repeat;
 }
 .interior h1 { font-size: clamp(2.8rem, 5.3vw, 4.75rem); }
 .masthead nav { letter-spacing: .035em; }
