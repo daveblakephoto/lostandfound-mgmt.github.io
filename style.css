@@ -1,117 +1,209 @@
-body {
-  font-family: Helvetica, sans-serif;
-  background: #fff;
-  color: #111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  flex-direction: column;
-  letter-spacing: 0.15em; /* keep the body letter-spacing */
-  text-align: center;
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/assets/fonts/CormorantGaramond-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-
-h1 {
-  font-size: 2rem;
-  margin: 0;
+:root {
+  --paper: #fffdf9;
+  --ink: #281b15;
+  --muted: #716356;
+  --rule: #d9d0c1;
+  --champagne: #f3dfb4;
+  --gutter: clamp(1.25rem, 5vw, 6rem);
+  --serif: "Baskerville", "Iowan Old Style", Georgia, serif;
+  font: 100%/1.55 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
 }
-
-p {
-  font-size: 1rem;
-  margin-top: 0.3rem; /* Adjusted from 1rem to 0.3rem */
-}
-
-/* 1. Hero container setup */
-.hero-banner {
-  position: relative;
-  display: flex;
-  /* Center items both horizontally & vertically */
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;  /* Page covers full viewport height */
-  overflow: hidden;   /* Hides any image overflow */
-  text-align: center; /* Centers inline text within .hero-text */
-  margin: 0;
-}
-
-/* 2. Palm image container behind text */
-.banner-img-container {
-  position: absolute;         /* Freed from normal flow */
-  top: 32.5%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-  z-index: -1;               /* Keeps it behind the text */
-  max-width: 350px;          /* Adjust as needed */
-  width: 100%;
-  height: auto;
-}
-
-/* 3. Palm image styling */
-.banner-img {
-  opacity: 60%;
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 4. Text container in normal stacking context (above the palm) */
-.hero-text {
-  position: relative;
-  z-index: 1;
-  margin: 0 auto;
-}
-
-/* 5. Basic text styling */
-.hero-text h1 {
-  margin: 0;
-  font-size: 2.05rem;
-  letter-spacing: 0.05em;
-  background-color: #ffffff12;
-}
-
-.hero-text p {
-  margin: 1rem 0;
-  font-size: 1rem;
-  background-color: #ffffff12;
-}
-
-/* 6. Instagram Link Styles */
-.ig-link {
-  margin-top: 1rem;
-  font-size: 1rem;
+* { box-sizing: border-box; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+a { color: inherit; text-underline-offset: .22em; }
+a:hover { text-decoration-thickness: 2px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+::selection { color: var(--ink); background: var(--champagne); }
+h1, h2, h3, p, ol, dl, dd { margin: 0; }
+h1, h2 { font-family: var(--serif); font-weight: 400; text-wrap: balance; }
+h1 { font-size: clamp(3.2rem, 6.2vw, 6rem); line-height: .99; letter-spacing: -.035em; }
+h2 { font-size: clamp(1.85rem, 3vw, 2.6rem); line-height: 1.12; letter-spacing: -.02em; }
+.wordmark {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .035em;
   text-decoration: none;
-  color: #111;
+}
+.home {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 0 var(--gutter);
+  color: #f3dfb4;
+  background: #b78d67 url("/assets/glimmerwatersail_placeholder.jpg") center / cover;
+}
+.film { position: absolute; inset: 0; width: 100%; height: 100%; }
+.film { z-index: -2; object-fit: cover; }
+.home-bottom, .masthead, .colophon, nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.home-bottom { flex-direction: column; justify-content: center; gap: .2rem; padding: .75rem 0 1.15rem; font-size: .75rem; letter-spacing: .055em; }
+.home nav, .masthead nav { gap: clamp(1.1rem, 3vw, 3.5rem); }
+.home nav a, .masthead nav a, .colophon a {
   display: inline-flex;
   align-items: center;
-  transition: color 0.3s ease;
+  min-height: 44px;
+  text-decoration: none;
 }
-
-.ig-link:hover {
-  color: #555;
+nav a:hover, nav [aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .35em;
 }
-
-.ig-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 0.2rem;
+.identity { position: relative; isolation: isolate; align-self: center; text-align: center; padding: 2rem 0 3rem; }
+.palm { position: relative; z-index: -1; opacity: .65; display: block; width: min(90vw, clamp(18rem, 55vmin, 32rem)); height: auto; margin: 0 auto -9rem; filter: brightness(0) saturate(100%) invert(10%) sepia(16%) saturate(1170%) hue-rotate(339deg) brightness(94%) contrast(96%); pointer-events: none; }
+.identity h1 { position: relative; z-index: 1; width: min(72vw, 46rem); margin: .7rem auto 0; line-height: 0; }
+.identity h1 img { display: block; width: 100%; height: auto; }
+.identity .identity-descriptor { margin-top: 1.1rem; font: 400 clamp(1.05rem, 2vw, 1.45rem)/1.3 var(--serif); letter-spacing: .025em; }
+.identity .identity-founded { margin-top: .6rem; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; }
+.home-instagram {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: .5rem;
+  font-size: .85rem;
+  letter-spacing: .015em;
+  text-decoration: none;
 }
-
-.ig-handle {
-  letter-spacing: 0;
+.home-instagram:hover { text-decoration: underline; }
+.models-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 48px;
+  margin: 2.15rem auto 0;
+  padding-inline: 1rem;
+  font-size: .95rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .4em;
 }
-
-.word-tight {
-  word-spacing: -0.32em;
-  letter-spacing: 0.04em;
+.identity .roster-note { margin-top: .3rem; font-size: .7rem; letter-spacing: .06em; }
+.interior {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: 0 var(--gutter);
 }
-
-/* --- OPTIONAL MEDIA QUERY FOR SMALL SCREENS --- */
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 2rem;  /* slightly smaller heading on tiny screens */
-  }
-  .hero-text p {
-    font-size: 0.95rem;
-  }
+.masthead {
+  margin-inline: calc(-1 * var(--gutter));
+  padding: 1.15rem var(--gutter);
+  background: var(--paper);
+  color: var(--ink);
+  border-bottom: 1px solid #e8dfce;
+}
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.masthead .wordmark { display: flex; align-items: center; min-height: 44px; }
+.masthead .wordmark::before {
+  content: "";
+  display: block;
+  width: clamp(13rem, 22vw, 16rem);
+  aspect-ratio: 5;
+  background: currentColor;
+  mask: url("/assets/lostandfound-lockup.svg") center / contain no-repeat;
+}
+.interior h1 { font-size: clamp(2.8rem, 5.3vw, 4.75rem); }
+.masthead nav { letter-spacing: .035em; }
+.masthead nav a { text-decoration-thickness: 1px; }
+.masthead nav [aria-current="page"] { text-decoration-color: #aa8651; }
+.masthead nav, .colophon { font-size: .85rem; }
+.colophon {
+  margin-top: auto;
+  margin-inline: calc(-1 * var(--gutter));
+  padding: 1.4rem var(--gutter);
+  background: #fcf8f0;
+  color: var(--ink);
+  border-top: 1px solid #e8dfce;
+}
+.footer-signature { display: flex; align-items: center; gap: .9rem; }
+.footer-instagram { gap: .45rem; letter-spacing: .015em; }
+.colophon nav { gap: 1.5rem; }
+.spread, .portfolio {
+  width: min(100%, 80rem);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 8rem) 0;
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  align-items: start;
+  gap: clamp(2rem, 7vw, 8rem);
+}
+.copy {
+  max-width: 65ch;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.375rem);
+  line-height: 1.5;
+}
+.scouting .intro { font-size: 1.25rem; }
+.scouting .intro, .roster-introduction p, .roster-enquiry {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+.copy p + p, .copy .value-block, .action, .scouting .intro { margin-top: 1.25rem; }
+.copy .intro, .lead { font: 400 clamp(1.5rem, 2.4vw, 2rem)/1.3 "Cormorant Garamond", Georgia, serif; }
+.copy .section, .prepare { padding: 1.7rem 0; border-top: 1px solid var(--rule); }
+.copy .section:first-of-type { margin-top: 2rem; }
+.section h2 { font: 400 1.6rem/1.2 var(--serif); margin-bottom: .6rem; }
+.value-lines { list-style: none; padding: 1.4rem 0; border-block: 1px solid var(--rule); font: 400 1.65rem/1.4 var(--serif); }
+.welcome { font-style: italic; }
+.action {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  background: var(--ink);
+  color: var(--champagne);
+  padding: .85rem 1.5rem;
+  text-decoration: none;
+  font-size: .95rem;
+}
+.action:hover { background: #4b3428; }
+.action:focus-visible { outline-color: var(--ink); }
+.prepare { margin: 2.5rem 0 1.5rem; }
+.prepare p { margin: .85rem 0; }
+.prepare ol { padding-left: 1.5rem; }
+details { border-bottom: 1px solid var(--rule); }
+details:first-of-type { margin-top: 1rem; border-top: 1px solid var(--rule); }
+summary { padding: 1rem .2rem; cursor: pointer; font-weight: 400; }
+details p { padding: 0 0 1.25rem; }
+.roster {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  padding-block: clamp(3rem, 8vw, 7rem);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  max-width: 64rem;
+}
+.roster-introduction { padding-top: .35rem; }
+.roster h1 { font-size: clamp(2.6rem, 4.4vw, 3.5rem); }
+.roster-introduction p { max-width: 27ch; margin-top: 1.5rem; color: var(--muted); font-size: 1.375rem; line-height: 1.35; }
+.roster-enquiry { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; font-size: 1.25rem; }
+.roster .roster-selection { width: min(100%, 14rem); justify-self: center; }
+.model-card { display: block; text-decoration: none; }
+.model-card img { display: block; width: 100%; height: auto; }
+.model-card span { display: block; margin-top: .55rem; font: 400 1.65rem/1.2 var(--serif); }
+.model-card:hover span { text-decoration: underline; text-decoration-thickness: 1px; }
+@media (max-width: 680px) {
+  .palm { margin-bottom: -7rem; }
+  .masthead { flex-direction: column; align-items: flex-start; gap: .2rem; padding: 1.1rem var(--gutter) .2rem; }
+  .masthead nav { width: 100%; flex-wrap: wrap; gap: 0 1rem; }
+  .spread, .portfolio { grid-template-columns: 1fr; }
+  .roster .roster-selection { justify-self: start; }
+  .home-bottom nav { flex-wrap: wrap; justify-content: center; gap: 0 1.2rem; }
+  .colophon { flex-wrap: wrap; gap: .1rem 1rem; }
 }

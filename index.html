@@ -5,130 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="msvalidate.01" content="19BE996EEA9B5D42A53A641513952953" />
   <title>LOSTANDFOUND — Model Management</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-  body {
-    overflow-x: hidden;
-  }
-
-  @keyframes fadeInVideo {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .background-video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-    pointer-events: none;
-    z-index: -1;
-    background: #ffffff;
-    /* opacity: 0.88; */
-    animation: fadeInVideo 2s ease-in-out forwards;
-    opacity: 0;
-}
-
-  .hero-banner {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-text {
-    position: relative;
-    z-index: 2;
-  }
-
-  .video-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    /* background: rgba(121, 50, 2, 0.11); */
-    z-index: -1;
-    pointer-events: none;
-    transition: background-image 1s ease-in-out;
-  }
-
-  .main-nav {
-    margin-top: 2.1rem;
-    font-size: 0.9rem;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  .main-nav .nav-heading,
-  .main-nav a {
-    display: inline;
-    font-weight: normal;
-    color: black;
-    text-decoration: none;
-    margin-right: 0.3rem;
-    letter-spacing: -0.08em;
-  }
-
-  .main-nav a:hover {
-    color: #555;
-    text-decoration: underline;
-  }
-
-  .main-nav .nav-note {
-    display: block;
-    margin-top: 0.2rem;
-    letter-spacing: 0.04em;
-    font-size: 0.75rem;
-  }
-  .footer-nav {
-    position: fixed;
-    bottom: 2rem;
-    left: 0;
-    width: 100%;
-    z-index: 3;
-    text-align: center;
-    padding: 1rem 0;
-  }
-  .footer-nav nav {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-  }
-  .footer-nav nav a {
-    color: #111;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-  }
-  .footer-nav .footer-sep {
-    color: #111;
-    letter-spacing: 0;
-    font-size: 1rem;
-    line-height: 1;
-  }
-  .footer-nav nav a:hover {
-    text-decoration: underline;
-    color: #555;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  .background-video::-webkit-media-controls {
-    display: none !important;
-  }
-  .video-container {
-    pointer-events: none;
-  }
-  </style>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="canonical" href="https://lostandfound-mgmt.com/">
@@ -225,6 +101,8 @@
   }
   </script>
 
+  <link rel="stylesheet" href="/style.css?v=20261103">
+  <script defer src="/assets/home.js?v=3"></script>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-rhY3VM_rPuFQ-qDjBF6PB.js"></script>
 <script>
@@ -237,65 +115,27 @@
   plausible.init();
 </script>
 </head>
-<body>
-  <section class="hero-banner">
-    <div class="video-background video-container">
-      <video
-        autoplay
-        muted
-        playsinline
-        loop
-        preload="auto"
-        disablePictureInPicture
-        poster="assets/glimmerwatersail_placeholder.jpg"
-        class="background-video">
-        <source src="https://cdn.lostandfound-mgmt.com/glimmerwatersail_720p_webready.mp4" type="video/mp4">
-      </video>
-      <div class="video-overlay"></div>
-    </div>
-    <div class="banner-img-container">
-      <img class="banner-img" src="assets/laf-palm6.svg" alt="Palm Graphic">
-    </div>
-    <div class="hero-text">
-      <h1>
-        <span class="word-tight">LOST AND FOUND</span>
-      </h1>
-      <p>Model Management | est. 2025</p>
-      <br/>
-      <a class="ig-link" href="https://www.instagram.com/lostandfound.mgmt/" target="_blank" onclick="plausible('Instagram DM Click')">
-        <img class="ig-icon" src="assets/IG-icon.svg" alt="Instagram Icon">
-        <span class="ig-handle">LOSTANDFOUND.mgmt</span>
-      </a>
-      <br/>
-      <div class="main-nav">
-        <a class="nav-heading" href="/models/">MODELS:</a>
-        <span class="nav-note">PRIVATE ROSTER</span>
-      </div>
-    </div>
-  </section>
-  <footer class="footer-nav">
-    <nav>
-      <a href="/become-a-model/">become&nbsp;a&nbsp;model</a>
-      <span class="footer-sep">•</span>
-      <a href="/the-agency/">the&nbsp;agency</a>
-      <span class="footer-sep">•</span>
-      <a href="/contact/">contact</a>
+<body class="home">
+  <video class="film" muted playsinline loop preload="none" aria-hidden="true" poster="/assets/glimmerwatersail_placeholder.jpg">
+    <source src="https://cdn.lostandfound-mgmt.com/glimmerwatersail_720p_webready.mp4" type="video/mp4">
+  </video>
+  <main class="identity">
+    <img class="palm" src="/assets/laf-palm6.svg" width="1024" height="1024" alt="">
+    <h1 class="wordmark"><img src="/assets/lostandfound-wordmark.svg?v=8" alt="LOSTANDFOUND" width="1052" height="100"></h1>
+    <p class="identity-descriptor">Model Management</p>
+    <p class="identity-founded">Est. 2025</p>
+    <a class="models-link" href="/models/" aria-describedby="roster-note">Models</a>
+    <p id="roster-note" class="roster-note">Private roster</p>
+  </main>
+  <footer class="home-bottom">
+    <a class="home-instagram" href="https://www.instagram.com/lostandfound.mgmt/" onclick="plausible('Instagram Footer Click')"><svg aria-hidden="true" width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.42.405a4.919 4.919 0 011.675 1.042 4.919 4.919 0 011.042 1.675c.165.45.35 1.25.405 2.42.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.405 2.42a4.919 4.919 0 01-1.042 1.675 4.919 4.919 0 01-1.675 1.042c-.45.165-1.25.35-2.42.405-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.42-.405a4.919 4.919 0 01-1.675-1.042 4.919 4.919 0 01-1.042-1.675c-.165-.45-.35-1.25-.405-2.42C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.405-2.42a4.919 4.919 0 011.042-1.675 4.919 4.919 0 011.675-1.042c.45-.165 1.25-.35 2.42-.405C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.772.132 4.68.37 3.8.735a7.001 7.001 0 00-2.55 1.664A7.001 7.001 0 00.735 4.95c-.365.88-.603 1.972-.663 3.252C.013 8.332 0 8.741 0 12s.013 3.668.072 4.948c.06 1.28.298 2.372.663 3.252a7.001 7.001 0 001.665 2.55 7.001 7.001 0 002.55 1.665c.88.365 1.972.603 3.252.663C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.28-.06 2.372-.298 3.252-.663a7.001 7.001 0 002.55-1.665 7.001 7.001 0 001.665-2.55c.365-.88.603-1.972.663-3.252.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948c-.06-1.28-.298-2.372-.663-3.252A7.001 7.001 0 0020.2.735 7.001 7.001 0 0017.65.07C16.77-.295 15.678-.533 14.398-.593 13.118-.653 12.709-.666 12-.666zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/>
+</svg>lostandfound.mgmt</a>
+    <nav aria-label="Main navigation">
+      <a href="/the-agency/">The agency</a>
+      <a href="/become-a-model/">Apply to be scouted</a>
+      <a href="/contact/">Contact</a>
     </nav>
   </footer>
 </body>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const video = document.querySelector('.background-video');
-
-  if (video) {
-    video.addEventListener('error', function() {
-      console.warn('Background video failed to load. Fallback to poster.');
-      video.style.display = 'none';
-      document.querySelector('.video-overlay').style.backgroundImage = "url('assets/glimmerwatersail_placeholder.jpg')";
-      document.querySelector('.video-overlay').style.backgroundSize = "cover";
-      document.querySelector('.video-overlay').style.backgroundPosition = "center";
-    });
-  }
-});
-</script>
 </html>
